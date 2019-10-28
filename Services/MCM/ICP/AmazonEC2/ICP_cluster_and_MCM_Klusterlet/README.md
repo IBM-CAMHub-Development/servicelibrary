@@ -1,13 +1,13 @@
 # Highly Available ICP Deployment with klusterlet on Amazon EC2
 
-This [IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/en/SS2L37/product_welcome_cloud_automation_manager.html) service configuration first uses the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) to provision virtual machines on AWS and deploys [IBM Cloud Private](https://www.ibm.com/cloud-computing/products/ibm-cloud-private/) 3.2.0 on them. This configuration then imports the deployed ICP to [IBM Multicloud Manager](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.0/mcm/getting_started/introduction.html) Controller to be managed by the controller.
+This [IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/en/SS2L37/product_welcome_cloud_automation_manager.html) service configuration first uses the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) to provision virtual machines on AWS and deploys [IBM Cloud Private](https://www.ibm.com/cloud-computing/products/ibm-cloud-private/)  on them. This configuration then imports the deployed ICP to [IBM Multicloud Manager](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.1.0/kc_welcome_cloud_pak.html) Controller to be managed by the controller.
 
 More details on IBM Cloud Automation Manager Service can be found [here](https://www.ibm.com/support/knowledgecenter/en/SS2L37_3.2.1.0/cam_managing_services.html).
 
 This service is composed of following terraform templates
 
-- [IBM Cloud Private 3.2.0 highly-available cluster in AWS](https://github.com/IBM-CAMHub-Open/template_icp_aws) terraform template.
-- [IBM Multicloud Manager 3.2.0](https://github.com/IBM-CAMHub-Open/template_mcm_install/tree/3.2.0/ICP/terraform) terraform template. 
+- [IBM Cloud Private  highly-available cluster in AWS](https://github.com/IBM-CAMHub-Open/template_icp_aws/tree/3.2.1) terraform template.
+- [IBM Multicloud Manager ](https://github.com/IBM-CAMHub-Open/template_mcm_install/tree/3.2.1/ICP/terraform) terraform template. 
 
 
 This service can be either deployed from IBM Cloud Automation Manager or from IBM Cloud Private Catalog.
@@ -17,7 +17,7 @@ This service can be either deployed from IBM Cloud Automation Manager or from IB
 
 ## Deploying the service from IBM Cloud Automation Manager
 
-To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster v3_2_0 on Amazon EC2. Fill the following input parameters and deploy the service.
+To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster v3_2_1 on Amazon EC2. Fill the following input parameters and deploy the service.
 
 Note: Bastion Node, Master Node, Proxy Node, Management Node, Worker Node and Vulnerability Advisor Node are hidden parameters. If you need to change them then make a copy of this service configuration and create a new sevice in IBM Cloud Automation Manager with the new configuration. 
 
@@ -39,7 +39,7 @@ Note: Bastion Node, Master Node, Proxy Node, Management Node, Worker Node and Vu
 | ICP Password |  | ICP user password |
 | Docker Package Location |  | Docker package location is required when installing ICP EE on RedHat. Package is expected in AWS s3 bucket. Prefix the location string with protocol s3://.  |
 | ICP EE Image Location |  | Image location of ICP EE. Package is expected in AWS s3 bucket. Prefix the location string with s3://. |
-| ICP Inception Image | ibmcom/icp-inception-amd64:3.2.0-ee | Name of the bootstrap installation image. |
+| ICP Inception Image | ibmcom/icp-inception-amd64:-ee | Name of the bootstrap installation image. |
 | VPC CIDR block | 10.10.0.0/16 | AWS VPC CIDR block. This is the primary CIDR block for your ICP node VPC. |
 | Subnet Name | icp-subnet | Subnet name prefix for public and private subnets used by ICP nodes. |
 | Private Subnet CIDRs | ["10.10.10.0/24","10.10.11.0/24","10.10.12.0/24"] | List of subnet CIDRs. Total number of CIDR entry must match the number of availability zone provided above. A CIDR value is used in the creation of a private subnet in an availability zone for the worker nodes. |
@@ -64,16 +64,16 @@ Note: Bastion Node, Master Node, Proxy Node, Management Node, Worker Node and Vu
 | icp_password |  | ICP user password |
 | icp_docker_package_location |  | Docker package location is required when installing ICP EE on RedHat. Package is expected in AWS s3 bucket. Prefix the location string with protocol s3://.  |
 | icp_image_location |  | Image location of ICP EE. Package is expected in AWS s3 bucket. Prefix the location string with s3://. |
-| icp_inception_image | ibmcom/icp-inception-amd64:3.2.0-ee | Name of the bootstrap installation image. |
+| icp_inception_image | ibmcom/icp-inception-amd64:3.2.1-ee | Name of the bootstrap installation image. |
 | aws_cidr | 10.10.0.0/16 | AWS VPC CIDR block. This is the primary CIDR block for your ICP node VPC. |
 | aws_subnetname | icp-subnet | Subnet name prefix for public and private subnets used by ICP nodes. |
 | aws_subnet_cidrs | | List of subnet CIDRs. Total number of CIDR entry must match the number of availability zone provided above. A CIDR value is used in the creation of a private subnet in an availability zone for the worker nodes. If you are installing this service from ICP Catalog, your input should look like ["10.10.10.0/24", "10.10.11.0/24"].|
 | aws_pub_subnet_cidrs | | List of subnet CIDRs. Total number of CIDR entry must match the number of availability zone provided above. A CIDR value is used in the creation of a public subnet in an availability zone for the proxy and management nodes. If you are installing this service from ICP Catalog, your input should look like ["10.10.20.0/24", "10.10.21.0/24"].|
-| Paws_private_domain | icp-cluster.icp | Private domain name that is used to create route53 name. |
+| aws_private_domain | icp-cluster.icp | Private domain name that is used to create route53 name. |
 
 ### License and Maintainer
 
 Copyright IBM Corp. 2019
 
-Service Version - 3.2.0  
+Service Version - 4.1.0
  

@@ -2,8 +2,8 @@
 	"service": {
 		"specVersion": "v3",
 		"catalog_metadata": {
-			"name": "ICP cluster v3_2_0 on Amazon EC2",
-			"description": "Deploy an ICP 3.2.0 cluster on Amazon EC2, loads the MCM 3.2.0 docker images and deploys the MCM Klusterlet to make this a managed cluster.",
+			"name": "ICP cluster v3_2_1 on Amazon EC2",
+			"description": "Deploy an ICP 3.2.1 cluster on Amazon EC2, loads the MCM 3.2.1 docker images and deploys the MCM Klusterlet to make this a managed cluster.",
 			"image": "serviceicon_1.svg",
 			"category": "Cluster Lifecycle Services",
 			"bullets": [
@@ -13,9 +13,9 @@
 				}
 			],
 			"providerDisplayName": "IBM",
-			"longDescription": "Deploy an ICP 3.2.0 cluster on Amazon EC2, loads the MCM 3.2.0 docker images and deploys the MCM Klusterlet to make this a managed cluster.",
-			"documentationUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.0.0/content/cam_content_overview_summary.html",
-			"supportUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.0.0/cam_ordering_services.html",
+			"longDescription": "Deploy an ICP 3.2.1 cluster on Amazon EC2, loads the MCM 3.2.1 docker images and deploys the MCM Klusterlet to make this a managed cluster.",
+			"documentationUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/content/cam_content_overview_summary.html",
+			"supportUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_ordering_services.html",
 			"bindable": false,
 			"updatable": "",
 			"systemTags": true,
@@ -457,7 +457,7 @@
 						"label": "ICP Inception Image",
 						"description": "Name of the bootstrap installation image.",
 						"type": "string",
-						"default": "ibmcom/icp-inception-amd64:3.2.0-ee",
+						"default": "ibmcom/icp-inception-amd64:3.2.1-ee",
 						"group_name": "Globals",
 						"required": true,
 						"secured": false,
@@ -473,7 +473,7 @@
 							"IBM Cloud Private highly-available cluster": {
 								"title": "IBM Cloud Private highly-available cluster_49c475",
 								"template_name": "IBM Cloud Private highly-available cluster",
-								"version": "3.2.0",
+								"version": "3.2.1",
 								"id": "ibmcloud069f4701",
 								"template_type": "Terraform",
 								"template_content_type": "Amazon EC2",
@@ -511,7 +511,7 @@
 							"IBM Multicloud Manager Klusterlet on IBM Cloud Private": {
 								"title": "IBM Multicloud Manager Klusterlet on IBM Cloud Private_a7f79d",
 								"template_name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
-								"version": "3.2.0",
+								"version": "3.2.1",
 								"id": "ibmmultif7668f0f",
 								"template_type": "Terraform",
 								"template_content_type": "Other",
@@ -520,23 +520,20 @@
 								"cloud_connection_name": "Other",
 								"template_data_objects": {
 									"bastionhost": "${templates.ibmcloud069f4701.output.connection_name}BastionHost",
-									"private_docker_registry": "${templates.ibmcloud069f4701.output.registry_config_do_name}",
 									"mcm_controller": "${input_parameters.mcm_controller}"
 								},
 								"template_params": {
-									"import_launch_node_ip": "${templates.ibmcloud069f4701.output.bootmaster}",
-									"vm_os_user": "icpdeploy",
-									"vm_os_password": "",
-									"vm_os_private_key": "${templates.ibmcloud069f4701.output.vm_os_private_key}",
-									"cluster_server_host": "${templates.ibmcloud069f4701.output.ICP_Console_URL}",
-									"cluster_name": "${input_parameters.icp_instance_name}",
-									"admin_user": "${templates.ibmcloud069f4701.output.ICP_Admin_Username}",
-									"admin_user_password": "${templates.ibmcloud069f4701.output.ICP_Admin_Password}",
-									"icp_inception_image": "ibmcom/icp-inception-amd64:3.2.0-ee",
-									"icp_dir": "${templates.ibmcloud069f4701.output.icp_install_dir}",
-									"man_cluster_on_hub": "managed-${input_parameters.icp_instance_name}"
-								},
-								"outputs": ["cluster_import_yaml"]
+									"cluster_namespace": "managed-${input_parameters.icp_instance_name}-ns",
+									"cluster_name": "managed-${input_parameters.icp_instance_name}",
+									"icp_admin_user": "${templates.ibmcloud069f4701.output.ICP_Admin_Username}",
+									"icp_admin_password": "${templates.ibmcloud069f4701.output.ICP_Admin_Password}",
+									"icp_url": "${templates.ibmcloud069f4701.output.ICP_Console_URL}",
+									"image_registry": "${templates.ibmcloud069f4701.output.ICP_Console_ELB_DNS}:8500/ibmcom",
+									"image_suffix": "-amd64",
+									"image_version": "3.2.1",
+									"docker_user": "${templates.ibmcloud069f4701.output.ICP_Admin_Username}",
+									"docker_password": "${templates.ibmcloud069f4701.output.ICP_Admin_Password}"
+								}
 							}
 						}
 					],
