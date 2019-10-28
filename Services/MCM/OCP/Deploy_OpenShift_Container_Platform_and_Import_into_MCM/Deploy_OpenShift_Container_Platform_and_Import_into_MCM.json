@@ -526,7 +526,7 @@
               "IBM Multicloud Manager Klusterlet on OpenShift": {
                 "title": "IBM Multicloud Manager Klusterlet on OpenShift_f3653c",
                 "template_name": "IBM Multicloud Manager Klusterlet on OpenShift",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmmulti57aa870e",
                 "template_type": "Terraform",
                 "template_content_type": "Other",
