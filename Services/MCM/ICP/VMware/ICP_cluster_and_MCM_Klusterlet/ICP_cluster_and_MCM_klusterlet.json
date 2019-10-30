@@ -648,7 +648,7 @@
 									"icp_private_ssh_key": "",
 									"icp_public_ssh_key": ""
 								},
-								"outputs": ["ibm_cloud_private_master_ip", "ibm_cloud_private_admin_url", "ibm_cloud_private_admin_user", "ibm_cloud_private_admin_password", "ibm_cloud_private_proxy_hostname", "registry_config_do_name", "icp_install_dir"]
+								"outputs": ["ibm_cloud_private_master_ip", "ibm_cloud_private_admin_url", "ibm_cloud_private_admin_user", "ibm_cloud_private_admin_password", "ibm_cloud_private_proxy_hostname"]
 							}
 						}, {
 							"Medium Node Deployment of IBM Cloud Private": {
@@ -745,7 +745,7 @@
 									"nfs_server_vm_ipv4_gateway": "${datatypes.vsphere_managed_inventory_definition.vm_ipv4_gateway}",
 									"nfs_server_vm_ipv4_prefix_length": "${datatypes.vsphere_managed_inventory_definition.vm_ipv4_netmask}"
 								},
-								"outputs": ["ibm_cloud_private_master_ip", "ibm_cloud_private_admin_url", "ibm_cloud_private_admin_user", "ibm_cloud_private_admin_password", "ibm_cloud_private_proxy_hostname", "ibm_cloud_private_boot_ip", "registry_config_do_name", "icp_install_dir"]
+								"outputs": ["ibm_cloud_private_master_ip", "ibm_cloud_private_admin_url", "ibm_cloud_private_admin_user", "ibm_cloud_private_admin_password", "ibm_cloud_private_proxy_hostname", "ibm_cloud_private_boot_ip"]
 							}
 						}, {
 							"HA Node Deployment of IBM Cloud Private": {
@@ -846,7 +846,7 @@
 									"nfs_server_vcpu": "${datatypes.icp_nfs_node_on_vmware.vcpu}",
 									"nfs_server_vm_disk1_size": "${datatypes.icp_nfs_node_on_vmware.disk_size}"
 								},
-								"outputs": ["ibm_cloud_private_master_ip", "ibm_cloud_private_admin_url", "ibm_cloud_private_admin_user", "ibm_cloud_private_admin_password", "ibm_cloud_private_proxy_hostname", "ibm_cloud_private_boot_ip", "registry_config_do_name", "icp_install_dir"]
+								"outputs": ["ibm_cloud_private_master_ip", "ibm_cloud_private_admin_url", "ibm_cloud_private_admin_user", "ibm_cloud_private_admin_password", "ibm_cloud_private_proxy_hostname", "ibm_cloud_private_boot_ip"]
 							}
 						}, {
 							"IBM Multicloud Manager Klusterlet on IBM Cloud Private": {
