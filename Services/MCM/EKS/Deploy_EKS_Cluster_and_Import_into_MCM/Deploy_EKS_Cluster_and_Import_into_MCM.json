@@ -107,6 +107,19 @@
             "default": ""
           },
           {
+            "name": "mcm_controller",
+            "label": "IBM MCM Controller Definition",
+            "customtype": "sharedparameter",
+            "type": "sharedparameter",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "IBM MCM Controller (hub cluster) details will be used to import a managed cluster to the controller.",
+            "default": "",
+            "datatype": "mcm_controller"
+          },
+          {
             "name": "cluster_name",
             "label": "Cluster name",
             "customtype": "string",
@@ -118,17 +131,256 @@
             "description": "Name of the EKS cluster to be deployed"
           },
           {
+            "name": "cluster_namespace",
+            "label": "Cluster Namespace",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Namespace within the hub cluster into which the target cluster will be imported; Defaults to cluster name"
+          },
+          {
             "name": "aws_region",
-            "label": "AWS Region name",
+            "label": "AWS Region Name",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "options": [
+              {
+                "value": "us-east-1",
+                "label": "US East (N. Virginia)",
+                "default": true
+              },
+              {
+                "value": "us-east-2",
+                "label": "US East (Ohio)"
+              },
+              {
+                "value": "us-west-1",
+                "label": "US West (N. California)"
+              },
+              {
+                "value": "us-west-2",
+                "label": "US West (Oregon)"
+              },
+              {
+                "value": "us-gov-west-1",
+                "label": "US GovCloud Region"
+              },
+              {
+                "value": "ca-central-1",
+                "label": "Canada (Central)"
+              },
+              {
+                "value": "eu-west-1",
+                "label": "EU (Ireland)"
+              },
+              {
+                "value": "eu-central-1",
+                "label": "EU (Frankfurt)"
+              },
+              {
+                "value": "eu-west-2",
+                "label": "EU (London)"
+              },
+              {
+                "value": "ap-northeast-1",
+                "label": "Asia Pacific (Tokyo)"
+              },
+              {
+                "value": "ap-northeast-2",
+                "label": "Asia Pacific (Seoul)"
+              },
+              {
+                "value": "ap-southeast-1",
+                "label": "Asia Pacific (Singapore)"
+              },
+              {
+                "value": "ap-southeast-2",
+                "label": "Asia Pacific (Sydney)"
+              },
+              {
+                "value": "ap-south-1",
+                "label": "Asia Pacific (Mumbai)"
+              },
+              {
+                "value": "sa-east-1",
+                "label": "South America (Sao Paulo)"
+              }
+            ],
+            "description": "AWS Region Name",
+            "default": "us-east-1"
+          },
+          {
+            "name": "aws_availability_zones",
+            "label": "Availability Zones",
+            "type": "list",
+            "immutable": false,
+            "immutable_after_create": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "The availability zone letter identifier in the above selected region. At lease 2 availability zones are required; High availability should have at least 3 availability zones",
+            "default": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "name": "aws_ami_owner_id",
+            "label": "AWS AMI Owner ID",
             "customtype": "string",
             "type": "string",
             "immutable": false,
             "hidden": false,
             "required": true,
             "secured": false,
-            "default": "us-east-1",
-            "description": "AWS Region Name",
-            "permission": "Read-Write"
+            "description": "AWS AMI Owner ID",
+            "default": "602401143452"
+          },
+          {
+            "name": "aws_ami_name_prefix",
+            "label": "AWS AMI Name prefix",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Name prefix for AWS AMI",
+            "default": "amazon-eks-node"
+          },
+          {
+            "name": "aws_image_size",
+            "label": "AWS Image Instance Size",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "AWS Image Instance Size",
+            "default": "t3.medium"
+          },
+          {
+            "name": "min_worker_count",
+            "label": "Minimum number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1",
+                "default": true
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              }
+            ],
+            "description": "Minimum number of worker nodes"
+          },
+          {
+            "name": "max_worker_count",
+            "label": "Maximum number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3",
+                "default": true
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "value": "8",
+                "label": "8"
+              },
+              {
+                "value": "9",
+                "label": "9"
+              },
+              {
+                "value": "10",
+                "label": "10"
+              }
+            ],
+            "description": "Maximum number of worker nodes"
+          },
+          {
+            "name": "initial_worker_count",
+            "label": "Initial number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1",
+                "default": true
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              }
+            ],
+            "description": "Initial number of worker nodes"
           },
           {
             "name": "kube_version",
@@ -156,14 +408,69 @@
           {
             "name": "secret_access_key",
             "label": "Secret Access Key",
-            "customtype": "password",
-            "type": "password",
+            "customtype": "string",
+            "type": "string",
             "immutable": false,
             "hidden": false,
             "required": true,
             "secured": true,
             "description": "Secret access key for Amazon EC2 cloud",
             "default": ""
+          },
+          {
+            "name": "image_registry",
+            "label": "Image Registry",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "URL for private docker registry from which klusterlet images will be pulled"
+          },
+          {
+            "name": "image_suffix",
+            "label": "Image Suffix",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Suffix (e.g. platform type) to be appended to image name"
+          },
+          {
+            "name": "image_version",
+            "label": "Image Version",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Version (tag) of the MCM image to be pulled"
+          },
+          {
+            "name": "docker_user",
+            "label": "Docker User",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Username for authenticating with the private docker registry"
+          },
+          {
+            "name": "docker_password",
+            "label": "Docker Password",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": true,
+            "description": "Password for authenticating with the private docker registry"
           }
         ],
         "flow": {
@@ -184,18 +491,14 @@
                 "template_params": {
                   "cluster_name": "${input_parameters.cluster_name}",
                   "aws_region": "${input_parameters.aws_region}",
-                  "aws_availability_zones": [
-                    "a",
-                    "b",
-                    "c"
-                  ],
+                  "aws_availability_zones": "${input_parameters.aws_availability_zones}",
                   "kube_version": "${input_parameters.kube_version}",
-                  "aws_ami_owner_id": "602401143452",
-                  "aws_ami_name_prefix": "amazon-eks-node",
-                  "aws_image_size": "t3.medium",
-                  "min_worker_count": "1",
-                  "max_worker_count": "3",
-                  "initial_worker_count": "1"
+                  "aws_ami_owner_id": "${input_parameters.aws_ami_owner_id}",
+                  "aws_ami_name_prefix": "${input_parameters.aws_ami_name_prefix}",
+                  "aws_image_size": "${input_parameters.aws_image_size}",
+                  "min_worker_count": "${input_parameters.min_worker_count}",
+                  "max_worker_count": "${input_parameters.max_worker_count}",
+                  "initial_worker_count": "${input_parameters.initial_worker_count}"
                 },
                 "outputs": [
                   "cluster_name",
@@ -212,8 +515,8 @@
               "MCM Klusterlet within Amazon EC2 Kubernetes Service": {
                 "title": "MCM Klusterlet within Amazon EC2 Kubernetes Service",
                 "template_name": "MCM Klusterlet within Amazon EC2 Kubernetes Service",
-                "version": "3.2.0",
-                "id": "mcm320mc3cb86e17",
+                "version": "3.2.1",
+                "id": "importam803e4a18",
                 "template_type": "Terraform",
                 "template_content_type": "Other",
                 "template_provider": "Other",
@@ -221,24 +524,28 @@
                 "cloud_connection_name": "Other",
                 "template_data_objects": {
                   "bastionhost": "DefaultNoBastionHostRequired",
-                  "kubeconfig": "${input_parameters.cluster_name}",
-                  "mcmcontroller": "mcm-controller"
+                  "kubeconfig": "",
+                  "mcm_controller": "${input_parameters.mcm_controller}"
                 },
                 "template_params": {
-                  "icp_url": "${mcmcontroller.icp_url}",
-                  "icp_admin_user": "${mcmcontroller.icp_admin_user}",
-                  "icp_admin_password": "${mcmcontroller.icp_admin_password}",
-                  "mcm_hub_endpoint": "${mcmcontroller.mcm_hub_endpoint}",
-                  "remove_or_delete": "remove",
+                  "mcm_url": "${mcm_controller.icp_url}",
+                  "mcm_admin_user": "${mcm_controller.icp_admin_user}",
+                  "mcm_admin_password": "${mcm_controller.icp_admin_password}",
                   "cluster_name": "${kubeconfig.cluster_name}",
+                  "cluster_namespace": "${input_parameters.cluster_namespace}",
                   "cluster_config": "${kubeconfig.cluster_config}",
                   "access_key_id": "${input_parameters.access_key_id}",
                   "secret_access_key": "${input_parameters.secret_access_key}",
-                  "aws_region": "${input_parameters.aws_region}"
+                  "aws_region": "${input_parameters.aws_region}",
+                  "image_registry": "${input_parameters.image_registry}",
+                  "image_suffix": "${input_parameters.image_suffix}",
+                  "image_version": "${input_parameters.image_version}",
+                  "docker_user": "${input_parameters.docker_user}",
+                  "docker_password": "${input_parameters.docker_password}"
                 },
                 "outputs": [],
-                "warning": false,
-                "error": false
+                "error": false,
+                "immutable": false
               }
             }
           ],
@@ -246,7 +553,7 @@
           "notifications": [],
           "sequence": {
             "0": "amazonwe5e8da292",
-            "1": "mcm320mc3cb86e17"
+            "1": "importam803e4a18"
           },
           "error_sequence": {}
         },

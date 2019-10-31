@@ -107,6 +107,19 @@
             "default": ""
           },
           {
+            "name": "mcm_controller",
+            "label": "IBM MCM Controller Definition",
+            "customtype": "sharedparameter",
+            "type": "sharedparameter",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "IBM MCM Controller (hub cluster) details will be used to import a managed cluster to the controller.",
+            "default": "",
+            "datatype": "mcm_controller"
+          },
+          {
             "name": "cluster_name",
             "label": "Cluster name",
             "customtype": "string",
@@ -116,6 +129,52 @@
             "required": true,
             "secured": false,
             "description": "Name of the GKE cluster to be deployed"
+          },
+          {
+            "name": "cluster_namespace",
+            "label": "Cluster Namespace",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Namespace within the hub cluster into which the target cluster will be imported; Defaults to cluster name"
+          },
+          {
+            "name": "zone",
+            "label": "Zone",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "us-central1-a",
+                "label": "us-central1-a (Iowa, USA)",
+                "default": true
+              },
+              {
+                "value": "us-west1-a",
+                "label": "us-west1-a (Oregon, USA)"
+              },
+              {
+                "value": "us-east1-c",
+                "label": "us-east1-c (South Carolina, USA)"
+              },
+              {
+                "value": "europe-west3-a",
+                "label": "europe-west3-a (Frankfurt, Germany)"
+              },
+              {
+                "value": "asia-south1-a",
+                "label": "asia-south1-a (Mumbai, India)"
+              }
+            ],
+            "description": "The zone the resource should be created in.",
+            "default": "us-central1-a"
           },
           {
             "name": "kube_version",
@@ -128,6 +187,238 @@
             "secured": false,
             "description": "Kubernetes version for the cluster; 'latest' for the latest supported version, or version number in X.Y[.Z] format",
             "default": "latest"
+          }, 
+          {
+            "name": "machine_type",
+            "label": "Instance Machine Type",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "n1-standard-1",
+                "label": "n1-standard-1 (1 vCPU, 3.75 Memory(GB))",
+                "default": true
+              },
+              {
+                "value": "n1-standard-2",
+                "label": "n1-standard-2 (2 vCPU, 7.50 Memory(GB))"
+              },
+              {
+                "value": "n1-highmem-2",
+                "label": "n1-highmem-2 (2 vCPU, 13 Memory(GB))"
+              },
+              {
+                "value": "n1-highcpu-2",
+                "label": "n1-highcpu-2 (2 vCPU, 1.80 Memory(GB))"
+              },
+              {
+                "value": "n1-highcpu-4",
+                "label": "n1-highcpu-4 (4 vCPU, 3.60 Memory(GB))"
+              }
+            ],
+            "description": "The machine type to create.",
+            "default": "n1-standard-1"
+          },
+          {
+            "name": "disk_size_gb",
+            "label": "Disk size (GB)",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Size of the worker node disk",
+            "default": "100"
+          },
+          {
+            "name": "disk_type",
+            "label": "Disk type",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "pd-standard",
+                "label": "pd-standard",
+                "default": true
+              },
+              {
+                "value": "pd-ssd",
+                "label": "pd-ssd"
+              }
+            ],
+            "description": "Type of the worker node disk",
+            "default": "pd-standard"
+          },
+          {
+            "name": "initial_worker_count",
+            "label": "Initial number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1",
+                "default": true
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "value": "8",
+                "label": "8"
+              },
+              {
+                "value": "9",
+                "label": "9"
+              },
+              {
+                "value": "10",
+                "label": "10"
+              }
+            ],
+            "description": "Initial number of worker nodes"
+          },
+          {
+            "name": "min_worker_count",
+            "label": "Minimum number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1",
+                "default": true
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "value": "8",
+                "label": "8"
+              },
+              {
+                "value": "9",
+                "label": "9"
+              },
+              {
+                "value": "10",
+                "label": "10"
+              }
+            ],
+            "description": "Minimum number of worker nodes"
+          },
+          {
+            "name": "max_worker_count",
+            "label": "Maximum number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3",
+                "default": true
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "value": "8",
+                "label": "8"
+              },
+              {
+                "value": "9",
+                "label": "9"
+              },
+              {
+                "value": "10",
+                "label": "10"
+              }
+            ],
+            "description": "Maximum number of worker nodes"
           },
           {
             "name": "service_account_credentials",
@@ -139,6 +430,61 @@
             "required": true,
             "secured": true,
             "description": "Credentials for service account used to access the cluster (Base64-encoded)"
+          },
+          {
+            "name": "image_registry",
+            "label": "Image Registry",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "URL for private docker registry from which klusterlet images will be pulled"
+          },
+          {
+            "name": "image_suffix",
+            "label": "Image Suffix",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Suffix (e.g. platform type) to be appended to image name"
+          },
+          {
+            "name": "image_version",
+            "label": "Image Version",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Version (tag) of the MCM image to be pulled"
+          },
+          {
+            "name": "docker_user",
+            "label": "Docker User",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Username for authenticating with the private docker registry"
+          },
+          {
+            "name": "docker_password",
+            "label": "Docker Password",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": true,
+            "description": "Password for authenticating with the private docker registry"
           }
         ],
         "flow": {
@@ -158,14 +504,14 @@
                 "template_data_objects": {},
                 "template_params": {
                   "cluster_name": "${input_parameters.cluster_name}",
-                  "zone": "us-central1-a",
+                  "zone": "${input_parameters.zone}",
                   "kube_version": "${input_parameters.kube_version}",
-                  "machine_type": "n1-standard-1",
-                  "disk_size_gb": "100",
-                  "disk_type": "pd-standard",
-                  "initial_worker_count": "1",
-                  "min_worker_count": "1",
-                  "max_worker_count": "3"
+                  "machine_type": "${input_parameters.machine_type}",
+                  "disk_size_gb": "${input_parameters.disk_size_gb}",
+                  "disk_type": "${input_parameters.disk_type}",
+                  "initial_worker_count": "${input_parameters.initial_worker_count}",
+                  "min_worker_count": "${input_parameters.min_worker_count}",
+                  "max_worker_count": "${input_parameters.max_worker_count}"
                 },
                 "outputs": [
                   "cluster_name",
@@ -183,8 +529,8 @@
               "MCM Klusterlet within Google Kubernetes Engine": {
                 "title": "MCM Klusterlet within Google Kubernetes Engine",
                 "template_name": "MCM Klusterlet within Google Kubernetes Engine",
-                "version": "3.2.0",
-                "id": "mcm320mc5ea61622",
+                "version": "3.2.1",
+                "id": "importgo9198a449",
                 "template_type": "Terraform",
                 "template_content_type": "Other",
                 "template_provider": "Other",
@@ -193,22 +539,25 @@
                 "template_data_objects": {
                   "bastionhost": "DefaultNoBastionHostRequired",
                   "kubeconfig": "${input_parameters.cluster_name}",
-                  "mcmcontroller": "mcm-controller"
+                  "mcm_controller": "${input_parameters.mcm_controller}"
                 },
                 "template_params": {
-                  "icp_url": "${mcmcontroller.icp_url}",
-                  "icp_admin_user": "${mcmcontroller.icp_admin_user}",
-                  "icp_admin_password": "${mcmcontroller.icp_admin_password}",
-                  "mcm_hub_endpoint": "${mcmcontroller.mcm_hub_endpoint}",
-                  "remove_or_delete": "remove",
+                  "mcm_url": "${mcm_controller.icp_url}",
+                  "mcm_admin_user": "${mcm_controller.icp_admin_user}",
+                  "mcm_admin_password": "${mcm_controller.icp_admin_password}",
                   "cluster_name": "${kubeconfig.cluster_name}",
+                  "cluster_namespace": "${input_parameters.cluster_namespace}",
                   "cluster_config": "${kubeconfig.cluster_config}",
-                  "service_account_credentials": "${input_parameters.service_account_credentials}"
+                  "service_account_credentials": "${input_parameters.service_account_credentials}",
+                  "image_registry": "${input_parameters.image_registry}",
+                  "image_suffix": "${input_parameters.image_suffix}",
+                  "image_version": "${input_parameters.image_version}",
+                  "docker_user": "${input_parameters.docker_user}",
+                  "docker_password": "${input_parameters.docker_password}"
                 },
                 "outputs": [],
-                "warning": false,
                 "error": false,
-                "isErrorFlow": false
+                "immutable": false
               }
             }
           ],
@@ -216,7 +565,7 @@
           "notifications": [],
           "sequence": {
             "0": "googlekuff4e6b9e",
-            "1": "mcm320mc5ea61622"
+            "1": "importgo9198a449"
           },
           "error_sequence": {}
         },

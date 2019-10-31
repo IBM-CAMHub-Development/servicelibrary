@@ -31,8 +31,8 @@
     },
     "tags": [
       {
-        "name": "Request_Group",
-        "label": "Request_Group",
+        "name": "request_group",
+        "label": "request_group",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -45,8 +45,8 @@
         "permission": "Read-Only"
       },
       {
-        "name": "Request_User",
-        "label": "Request_User",
+        "name": "request_user",
+        "label": "request_user",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -59,8 +59,8 @@
         "permission": "Read-Only"
       },
       {
-        "name": "Service_Name",
-        "label": "Service_Name",
+        "name": "service_name",
+        "label": "service_name",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -73,8 +73,8 @@
         "permission": "Read-Only"
       },
       {
-        "name": "Service_Identifier",
-        "label": "Service_Identifier",
+        "name": "service_identifier",
+        "label": "service_identifier",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -107,6 +107,19 @@
             "default": ""
           },
           {
+            "name": "mcm_controller",
+            "label": "IBM MCM Controller Definition",
+            "customtype": "sharedparameter",
+            "type": "sharedparameter",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "IBM MCM Controller (hub cluster) details will be used to import a managed cluster to the controller",
+            "default": "",
+            "datatype": "mcm_controller"
+          },
+          {
             "name": "cluster_name",
             "label": "Cluster name",
             "customtype": "string",
@@ -118,15 +131,15 @@
             "description": "Name of the AKS cluster to be deployed"
           },
           {
-            "name": "resource_group_name",
-            "label": "Resource Group Name",
+            "name": "cluster_namespace",
+            "label": "Cluster Namespace",
             "customtype": "string",
             "type": "string",
             "immutable": false,
             "hidden": false,
-            "required": true,
+            "required": false,
             "secured": false,
-            "description": "Name of the resource group in which the cluster will be created"
+            "description": "Namespace within the hub cluster into which the target cluster will be imported; Defaults to cluster name"
           },
           {
             "name": "azure_region",
@@ -175,6 +188,40 @@
             "description": "Azure region to deploy infrastructure resources"
           },
           {
+            "name": "resource_group_name",
+            "label": "Resource Group Name",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Name of the resource group in which the cluster will be created"
+          },
+          {
+            "name": "dns_prefix",
+            "label": "DNS Prefix",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "DNS name prefix for the cluster's fully-qualified domain name"
+          },
+          {
+            "name": "kube_version",
+            "label": "Kubernetes version",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Kubernetes version for the cluster; 'latest' for the latest supported version, or version number in X.Y[.Z] format",
+            "default": "latest"
+          },
+          {
             "name": "principal_id",
             "label": "Service principal ID",
             "customtype": "string",
@@ -188,13 +235,25 @@
           {
             "name": "principal_password",
             "label": "Service principal password",
-            "customtype": "password",
-            "type": "password",
+            "customtype": "string",
+            "type": "string",
             "immutable": false,
             "hidden": false,
             "required": true,
             "secured": true,
             "description": "Service principal password"
+          },
+          {
+            "name": "username",
+            "label": "Login name",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Login name for worker node VM",
+            "default": "ubuntu"
           },
           {
             "name": "ssh_public_key",
@@ -208,16 +267,239 @@
             "description": "SSH public key for the user, Base64 encoded"
           },
           {
-            "name": "kube_version",
-            "label": "Kubernetes version",
+            "name": "worker_vm_size",
+            "label": "Worker Node VM Size",
             "customtype": "string",
             "type": "string",
             "immutable": false,
             "hidden": false,
             "required": true,
             "secured": false,
-            "description": "Kubernetes version for the cluster; 'latest' for the latest supported version, or version number in X.Y[.Z] format",
-            "default": "latest"
+            "description": "Size of worker node VM",
+            "default": "Standard_D2_v2"
+          },
+          {
+            "name": "worker_count",
+            "label": "Number of worker nodes",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "1",
+                "label": "1",
+                "default": true
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "value": "8",
+                "label": "8"
+              },
+              {
+                "value": "9",
+                "label": "9"
+              },
+              {
+                "value": "10",
+                "label": "10"
+              }
+            ],
+            "description": "Number of worker nodes"
+          },
+          {
+            "name": "enable_monitoring",
+            "label": "Enable cluster monitoring",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "true",
+                "label": "true",
+                "default": true
+              },
+              {
+                "value": "false",
+                "label": "false"
+              }
+            ],
+            "description": "Enable monitoring of the cluster"
+          },
+          {
+            "name": "monitoring_solution_name",
+            "label": "Monitoring solution",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Enable monitoring of the cluster",
+            "default": "ContainerInsights"
+          },
+          {
+            "name": "monitoring_solution_publisher",
+            "label": "Solution publisher",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Publisher of the monitoring solution",
+            "default": "Microsoft"
+          },
+          {
+            "name": "monitoring_solution_product",
+            "label": "Solution product name",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "Product name of the monitoring solution",
+            "default": "OMSGallery/ContainerInsights"
+          },
+          {
+            "name": "monitoring_sku",
+            "label": "Monitoring pricing SKU",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "options": [
+              {
+                "value": "Free",
+                "label": "Free"
+              },
+              {
+                "value": "PerNode",
+                "label": "PerNode"
+              },
+              {
+                "value": "Premium",
+                "label": "Premium"
+              },
+              {
+                "value": "Standard",
+                "label": "Standard"
+              },
+              {
+                "value": "Standalone",
+                "label": "Standalone"
+              },
+              {
+                "value": "Unlimited",
+                "label": "Unlimited"
+              },
+              {
+                "value": "PerGB2018",
+                "label": "PerGB2018",
+                "default": true
+              }
+            ],
+            "description": "Pricing SKU for the monitoring workspace"
+          },
+          {
+            "name": "monitoring_retention_days",
+            "label": "Retention days",
+            "customtype": "string",
+            "type": "string",
+            "regex": "^[3-9][0-9]$|^[1-6][0-9]{2}$|^7[0-2][0-9]$|730",
+            "regexdesc": "A number between 30 and 730, inclusive",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Number of days (30 - 730) to retain monitoring data",
+            "default": "180"
+          },
+          {
+            "name": "image_registry",
+            "label": "Image Registry",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "URL for private docker registry from which klusterlet images will be pulled"
+          },
+          {
+            "name": "image_suffix",
+            "label": "Image Suffix",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Suffix (e.g. platform type) to be appended to image name"
+          },
+          {
+            "name": "image_version",
+            "label": "Image Version",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Version (tag) of the MCM image to be pulled"
+          },
+          {
+            "name": "docker_user",
+            "label": "Docker User",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": false,
+            "description": "Username for authenticating with the private docker registry"
+          },
+          {
+            "name": "docker_password",
+            "label": "Docker Password",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": false,
+            "secured": true,
+            "description": "Password for authenticating with the private docker registry"
           }
         ],
         "flow": {
@@ -239,20 +521,20 @@
                   "cluster_name": "${input_parameters.cluster_name}",
                   "azure_region": "${input_parameters.azure_region}",
                   "resource_group_name": "${input_parameters.resource_group_name}",
-                  "dns_prefix": "${input_parameters.cluster_name}",
+                  "dns_prefix": "${input_parameters.dns_prefix}",
                   "kube_version": "${input_parameters.kube_version}",
                   "principal_id": "${input_parameters.principal_id}",
                   "principal_password": "${input_parameters.principal_password}",
-                  "username": "ubuntu",
+                  "username": "${input_parameters.username}",
                   "ssh_public_key": "${input_parameters.ssh_public_key}",
-                  "worker_vm_size": "Standard_D2_v2",
-                  "worker_count": "1",
-                  "enable_monitoring": "true",
-                  "monitoring_solution_name": "ContainerInsights",
-                  "monitoring_solution_publisher": "Microsoft",
-                  "monitoring_solution_product": "OMSGallery/ContainerInsights",
-                  "monitoring_sku": "PerGB2018",
-                  "monitoring_retention_days": "180"
+                  "worker_vm_size": "${input_parameters.worker_vm_size}",
+                  "worker_count": "${input_parameters.worker_count}",
+                  "enable_monitoring": "${input_parameters.enable_monitoring}",
+                  "monitoring_solution_name": "${input_parameters.monitoring_solution_name}",
+                  "monitoring_solution_publisher": "${input_parameters.monitoring_solution_publisher}",
+                  "monitoring_solution_product": "${input_parameters.monitoring_solution_product}",
+                  "monitoring_sku": "${input_parameters.monitoring_sku}",
+                  "monitoring_retention_days": "${input_parameters.monitoring_retention_days}"
                 },
                 "outputs": [
                   "cluster_name",
@@ -269,8 +551,8 @@
               "MCM Klusterlet within Microsoft Azure Kubernetes Service": {
                 "title": "MCM Klusterlet within Microsoft Azure Kubernetes Service",
                 "template_name": "MCM Klusterlet within Microsoft Azure Kubernetes Service",
-                "version": "3.2.0",
-                "id": "mcm320mc5a69b15e",
+                "version": "3.2.1",
+                "id": "importmi180b207c",
                 "template_type": "Terraform",
                 "template_content_type": "Other",
                 "template_provider": "Other",
@@ -279,20 +561,24 @@
                 "template_data_objects": {
                   "bastionhost": "DefaultNoBastionHostRequired",
                   "kubeconfig": "${input_parameters.cluster_name}",
-                  "mcmcontroller": "mcm-controller"
+                  "mcm_controller": "${input_parameters.mcm_controller}"
                 },
                 "template_params": {
-                  "icp_url": "${mcmcontroller.icp_url}",
-                  "icp_admin_user": "${mcmcontroller.icp_admin_user}",
-                  "icp_admin_password": "${mcmcontroller.icp_admin_password}",
-                  "mcm_hub_endpoint": "${mcmcontroller.mcm_hub_endpoint}",
-                  "remove_or_delete": "remove",
+                  "mcm_url": "${mcm_controller.icp_url}",
+                  "mcm_admin_user": "${mcm_controller.icp_admin_user}",
+                  "mcm_admin_password": "${mcm_controller.icp_admin_password}",
                   "cluster_name": "${kubeconfig.cluster_name}",
-                  "cluster_config": "${kubeconfig.cluster_config}"
+                  "cluster_namespace": "${input_parameters.cluster_namespace}",
+                  "cluster_config": "${kubeconfig.cluster_config}",
+                  "image_registry": "${input_parameters.image_registry}",
+                  "image_suffix": "${input_parameters.image_suffix}",
+                  "image_version": "${input_parameters.image_version}",
+                  "docker_user": "${input_parameters.docker_user}",
+                  "docker_password": "${input_parameters.docker_password}"
                 },
                 "outputs": [],
-                "warning": false,
-                "error": false
+                "error": false,
+                "immutable": false
               }
             }
           ],
@@ -300,7 +586,7 @@
           "notifications": [],
           "sequence": {
             "0": "microsof4d73694d",
-            "1": "mcm320mc5a69b15e"
+            "1": "importmi180b207c"
           },
           "error_sequence": {}
         },
