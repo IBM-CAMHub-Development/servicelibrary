@@ -52,4 +52,4 @@ The following service plans are defined:
 
 Copyright IBM Corp. 2019
 
-Service Version - 3.2.0  
+Service Version - 4.1.0  
