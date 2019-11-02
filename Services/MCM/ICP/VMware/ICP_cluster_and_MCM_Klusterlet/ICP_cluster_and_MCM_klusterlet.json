@@ -872,7 +872,7 @@
 								"icp_url": "${templates.singleno708a819a.output.ibm_cloud_private_admin_url||templates.mediumnoa2ce1940.output.ibm_cloud_private_admin_url||templates.hanodedee28a0f0c.output.ibm_cloud_private_admin_url}",
 								"icp_admin_user": "${input_parameters.icp_admin_user}",
 								"icp_admin_password": "${input_parameters.icp_admin_password}",
-								"image_registry": "${input_parameters.icp_cluster_name}.${input_parameters.vm_domain}.8500/ibmcom",
+								"image_registry": "${input_parameters.icp_cluster_name}.${input_parameters.vm_domain}:8500/ibmcom",
 								"image_suffix": "-amd64",
 								"image_version": "3.2.1",
 								"docker_user": "${input_parameters.icp_admin_user}",
