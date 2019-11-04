@@ -1,6 +1,7 @@
 {
   "service": {
     "specVersion": "v3",
+    "version": "2.3",
     "catalog_metadata": {
       "name": "Multi Cloud - MEAN Stack deployment",
       "description": "This service deploy MEAN stock on your choice of cloud.",

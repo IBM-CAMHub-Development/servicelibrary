@@ -17,7 +17,7 @@ This service can be either deployed from IBM Cloud Automation Manager or from IB
 
 ## Deploying the service from IBM Cloud Automation Manager
 
-To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster v3_2_0 on Amazon EC2. Fill the following input parameters and deploy the service.
+To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster on Amazon EC2. Fill the following input parameters and deploy the service.
 
 Note: Bastion Node, Master Node, Proxy Node, Management Node, Worker Node and Vulnerability Advisor Node are hidden parameters. If you need to change them then make a copy of this service configuration and create a new sevice in IBM Cloud Automation Manager with the new configuration. 
 

@@ -8,7 +8,7 @@ to upgrade ICP from 3.1.2 to 3.2.0.
 
 ## Deploying the service from IBM Cloud Automation Manager
 
-To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP v3_2_0 cluster upgrade. Fill the following input parameters and deploy the service.
+To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster upgrade. Fill the following input parameters and deploy the service.
 
 ### Parameters required for upgrading ICP
 

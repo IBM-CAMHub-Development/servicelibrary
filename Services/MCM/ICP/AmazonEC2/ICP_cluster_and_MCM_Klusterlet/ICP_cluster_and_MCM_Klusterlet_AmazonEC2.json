@@ -1,8 +1,9 @@
 {
 	"service": {
 		"specVersion": "v3",
+		"version": "3.2.0",
 		"catalog_metadata": {
-			"name": "ICP cluster v3_2_0 on Amazon EC2",
+			"name": "ICP cluster on Amazon EC2",
 			"description": "Deploy an ICP 3.2.0 cluster on Amazon EC2, loads the MCM 3.2.0 docker images and deploys the MCM Klusterlet to make this a managed cluster.",
 			"image": "serviceicon_1.svg",
 			"category": "Cluster Lifecycle Services",
