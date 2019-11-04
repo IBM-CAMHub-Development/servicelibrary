@@ -1,8 +1,9 @@
 {
     "service": {
       "specVersion": "v3",
+      "version": "3.2.1",
       "catalog_metadata": {
-        "name": "ICP cluster v3_2_1 add node",
+        "name": "ICP cluster add node",
         "description": "This service will add worker, proxy, and management nodes to your IBM Cloud Private cluster.\n\n",
         "image": "serviceicon_8.svg",
         "category": "Cluster Lifecycle Services",

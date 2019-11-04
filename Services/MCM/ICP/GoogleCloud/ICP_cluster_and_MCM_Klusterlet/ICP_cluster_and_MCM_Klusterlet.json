@@ -1,9 +1,10 @@
 {
   "service": {
     "specVersion": "v3",
+    "version": "3.2.1",
     "catalog_metadata": {
-      "name": "ICP cluster v3_2_0 on Google Cloud",
-      "description": "Deploys ICP cluster onto Google Cloud, loads the MCM 3.2.0 docker images and deploys the MCM Klusterlet v3.2.0",
+      "name": "ICP cluster on Google Cloud",
+      "description": "Deploys ICP cluster onto Google Cloud, loads the MCM 3.2.1 docker images and deploys the MCM Klusterlet v3.2.1",
       "image": "serviceicon_5.svg",
       "category": "Cluster Lifecycle Services",
       "bullets": [
@@ -13,9 +14,9 @@
         }
       ],
       "providerDisplayName": "IBM",
-      "longDescription": "Deploys ICP cluster into Google Cloud, loads the MCM 3.2.0 docker images and deploys the MCM Klusterlet v3.2.0",
-      "documentationUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.0.0/content/cam_content_overview_summary.html",
-      "supportUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.0.0/cam_ordering_services.html",
+      "longDescription": "Deploys ICP cluster into Google Cloud, loads the MCM 3.2.1 docker images and deploys the MCM Klusterlet v3.2.1",
+      "documentationUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/content/cam_content_overview_summary.html",
+      "supportUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/cam_ordering_services.html",
       "bindable": false,
       "updatable": "",
       "systemTags": true,
@@ -489,7 +490,7 @@
               "IBM Cloud Private minimal installation on Google Cloud": {
                 "title": "IBM Cloud Private minimal installation on Google Cloud",
                 "template_name": "IBM Cloud Private minimal installation on Google Cloud",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmcloudf317cf74",
                 "template_type": "Terraform",
                 "template_content_type": "Google Cloud",
@@ -519,7 +520,7 @@
                   "download_user_password": "",
                   "docker_package_location": "${input_parameters.icp_docker_package_location}",
                   "image_location": "${input_parameters.icp_image_location}",
-                  "icp_inception_image": "ibmcom/icp-inception:3.2.0"
+                  "icp_inception_image": "ibmcom/icp-inception:3.2.1"
                 },
                 "outputs": [
                   "ibm_cloud_private_boot_ip",
@@ -543,7 +544,7 @@
               "IBM Cloud Private with load balancers and boot node installation on Google Cloud": {
                 "title": "IBM Cloud Private with load balancers and boot node installation on Google Cloud",
                 "template_name": "IBM Cloud Private installation with load balancers on Google Cloud",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmcloud78ba87ba",
                 "template_type": "Terraform",
                 "template_content_type": "Google Cloud",
@@ -574,7 +575,7 @@
                   "download_user_password": "",
                   "docker_package_location": "${input_parameters.icp_docker_package_location}",
                   "image_location": "${input_parameters.icp_image_location}",
-                  "icp_inception_image": "ibmcom/icp-inception-amd64:3.2.0-ee"
+                  "icp_inception_image": "ibmcom/icp-inception-amd64:3.2.1-ee"
                 },
                 "outputs": [
                   "ibm_cloud_private_boot_ip",
@@ -599,7 +600,7 @@
               "IBM Multicloud Manager Klusterlet on IBM Cloud Private": {
                 "title": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
                 "template_name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmmulti2c1198e5",
                 "template_type": "Terraform",
                 "template_content_type": "Other",

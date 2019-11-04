@@ -19,7 +19,7 @@ This service is composed of following terraform templates
 
 ## Deploying the service from IBM Cloud Automation Manager
 
-To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster v3_2_1 on VMware. Fill the following input parameters and deploy the service.
+To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster on VMware. Fill the following input parameters and deploy the service.
 
 This service makes use of the following data types. Data objects for these types must be 
 created before deploying this service. 

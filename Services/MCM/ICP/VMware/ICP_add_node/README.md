@@ -14,7 +14,7 @@ to standup the additional node.
 
 ## Deploying the service from IBM Cloud Automation Manager
 
-To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster v3_2_1 add node. Fill the following input parameters and deploy the service.
+To deploy this service from IBM Cloud Automation Manager navigate to Library > Services > Cluster Lifecycle Services > ICP cluster add node. Fill the following input parameters and deploy the service.
 
 ### Parameters required for adding a node to VMware
 

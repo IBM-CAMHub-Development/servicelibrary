@@ -1,6 +1,7 @@
 {
   "service": {
     "specVersion": "v3",
+    "version": "3.2.1",
     "catalog_metadata": {
       "name": "Import kubernetes cluster",
       "description": "Import an existing kubernetes cluster into a MCM hub-cluster",

@@ -1,8 +1,9 @@
 {
   "service": {
     "specVersion": "v3",
+    "version": "3.2.1",
     "catalog_metadata": {
-      "name": "ICP cluster v3_2_0 on OpenStack",
+      "name": "ICP cluster on OpenStack",
       "description": "Deploy ICP on OpenStack and MCM Klusterlet",
       "image": "serviceicon_1.svg",
       "category": "Cluster Lifecycle Services",
@@ -246,7 +247,7 @@
             "required": true,
             "secured": false,
             "description": "ICP version",
-            "default": "3.2.0"
+            "default": "3.2.1"
           },
           {
             "name": "singlenode_hostname_ip",
@@ -858,7 +859,7 @@
               "Single Node Deployment of IBM Cloud Private Single on OpenStack": {
                 "title": "Single Node Deployment of IBM Cloud Private Single on OpenStack_8c8339",
                 "template_name": "IBM Cloud Private Single Node Installation on OpenStack",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "singleno6cf266e2",
                 "template_type": "Terraform",
                 "template_content_type": "OpenStack",
@@ -907,7 +908,7 @@
               "Medium Node Deployment of IBM Cloud Private on OpenStack": {
                 "title": "Medium Node Deployment of IBM Cloud Private on OpenStack_6961db",
                 "template_name": "IBM Cloud Private Medium Setup Installation on OpenStack",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "mediumno02ec735b",
                 "template_type": "Terraform",
                 "template_content_type": "OpenStack",
@@ -987,7 +988,7 @@
               "HA Node Deployment of IBM Cloud Private on OpenStack": {
                 "title": "HA Node Deployment of IBM Cloud Private on OpenStack_74fff0",
                 "template_name": "IBM Cloud Private HA Node Installation on OpenStack",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "hanodede075368b8",
                 "template_type": "Terraform",
                 "template_content_type": "OpenStack",
@@ -1071,7 +1072,7 @@
 				"IBM Multicloud Manager Klusterlet on IBM Cloud Private": {
 					"title": "IBM Multicloud Manager Klusterlet on IBM Cloud Private_a7f79d",
 					"template_name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
-					"version": "3.2.0",
+					"version": "3.2.1",
 					"id": "ibmmultif7668f0f",
 					"template_type": "Terraform",
 					"template_content_type": "Other",
@@ -1092,7 +1093,7 @@
 						"cluster_name": "${input_parameters.icp_cluster_name}",
 						"admin_user": "${input_parameters.icp_admin_user}",
 						"admin_user_password": "${input_parameters.icp_admin_password}",
-						"icp_inception_image": "ibmcom/icp-inception-ppc64le:3.2.0-ee",
+						"icp_inception_image": "ibmcom/icp-inception-ppc64le:3.2.1-ee",
 						"icp_dir": "${templates.singleno6cf266e2.output.icp_install_dir||templates.mediumno02ec735b.output.icp_install_dir||templates.hanodede075368b8.output.icp_install_dir}",
 						"man_cluster_on_hub": "managed-${input_parameters.icp_cluster_name}"
 					},
@@ -1666,7 +1667,7 @@
             "required": true,
             "secured": false,
             "description": "ICP version",
-            "default": "3.2.0"
+            "default": "3.2.1"
           },
           {
             "name": "singlenode_hostname_ip",
@@ -2025,7 +2026,7 @@
             "required": true,
             "secured": false,
             "description": "ICP version",
-            "default": "3.2.0"
+            "default": "3.2.1"
           },
           {
             "name": "vm_public_ip_pool",
@@ -2687,7 +2688,7 @@
             "required": true,
             "secured": false,
             "description": "ICP version",
-            "default": "3.2.0"
+            "default": "3.2.1"
           },
           {
             "name": "vm_public_ip_pool",

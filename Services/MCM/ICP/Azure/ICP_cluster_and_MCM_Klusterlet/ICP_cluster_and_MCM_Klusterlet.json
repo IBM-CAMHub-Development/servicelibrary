@@ -1,8 +1,9 @@
 {
   "service": {
     "specVersion": "v3",
+    "version": "3.2.1",
     "catalog_metadata": {
-      "name": "ICP cluster v3_2_0 on Microsoft Azure",
+      "name": "ICP cluster on Microsoft Azure",
       "description": "Deploy ICP cluster onto Microsoft Azure, loads the MCM docker images and deploys the MCM Klusterlet",
       "image": "serviceicon_1.svg",
       "category": "Cluster Lifecycle Services",
@@ -14,8 +15,8 @@
       ],
       "providerDisplayName": "IBM",
       "longDescription": "Deploy ICP cluster onto Microsoft Azure, loads the MCM docker images and deploys the MCM Klusterlet",
-      "documentationUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.0.0/content/cam_content_overview_summary.html",
-      "supportUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.0.0/cam_ordering_services.html",
+      "documentationUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/content/cam_content_overview_summary.html",
+      "supportUrl": "https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/cam_ordering_services.html",
       "bindable": false,
       "updatable": "",
       "systemTags": true,
@@ -573,7 +574,7 @@
               "IBM Cloud Private minimal installation on Microsoft Azure": {
                 "title": "IBM Cloud Private minimal installation on Microsoft Azure",
                 "template_name": "IBM Cloud Private minimal installation on Microsoft Azure",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmcloudb3c9917e",
                 "template_type": "Terraform",
                 "template_content_type": "Microsoft Azure",
@@ -607,9 +608,9 @@
                   "icpadmin_password": "${input_parameters.icpadmin_password}",
                   "network_cidr": "${input_parameters.network_cidr}",
                   "cluster_ip_range": "${input_parameters.cluster_ip_range}",
-                  "icp_version": "3.2.0",
+                  "icp_version": "3.2.1",
                   "disabled_management_services": "${input_parameters.disabled_management_services}",
-                  "icp_inception_image": "ibmcom/icp-inception:3.2.0"
+                  "icp_inception_image": "ibmcom/icp-inception:3.2.1"
                 },
                 "outputs": [
                   "ibm_cloud_private_boot_ip",
@@ -634,7 +635,7 @@
               "IBM Cloud Private HA installation on Microsoft Azure": {
                 "title": "IBM Cloud Private HA installation on Microsoft Azure",
                 "template_name": "IBM Cloud Private HA installation on Microsoft Azure",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmcloudbdafb05b",
                 "template_type": "Terraform",
                 "template_content_type": "Microsoft Azure",
@@ -673,7 +674,7 @@
                   "image_location": "${input_parameters.image_location}",
                   "docker_image_location": "${input_parameters.docker_image_location}",
                   "image_location_key": "${input_parameters.image_location_key}",
-                  "icp_inception_image": "ibmcom/icp-inception-amd64:3.2.0-ee",
+                  "icp_inception_image": "ibmcom/icp-inception-amd64:3.2.1-ee",
                   "zones": "3",
                   "install_verbosity": ""
                 },
@@ -700,7 +701,7 @@
               "IBM Multicloud Manager Klusterlet on IBM Cloud Private": {
                 "title": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
                 "template_name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
-                "version": "3.2.0",
+                "version": "3.2.1",
                 "id": "ibmmulti2c1198e5",
                 "template_type": "Terraform",
                 "template_content_type": "Other",

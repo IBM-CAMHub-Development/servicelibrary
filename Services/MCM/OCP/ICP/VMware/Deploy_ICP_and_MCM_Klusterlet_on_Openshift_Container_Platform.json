@@ -1,8 +1,9 @@
 {
     "service": {
       "specVersion": "v3",
+	  "version": "3.2.1_3.11",      
       "catalog_metadata": {
-        "name": "ICP v3_2_1 on OCP v3_11 on VMware",
+        "name": "ICP on OCP on VMware",
         "description": "Deploy ICP 3.2.1 with OCP 3.11 cluster on VMware, and import the cluster to the IBM MCM 3.2.1 controller using IBM MCM 3.2.1 Klusterlet.",
         "image": "serviceicon_1.svg",
         "category": "Application Services",

@@ -1,8 +1,9 @@
 {
 	"service": {
 		"specVersion": "v3",
+		"version": "3.2.1",
 		"catalog_metadata": {
-			"name": "ICP cluster v3_2_1 on VMware",
+			"name": "ICP cluster on VMware",
 			"description": "Deploy ICP on Vmware and import the cluster to the IBM MCM 3.2.1 controller using IBM MCM 3.2.1 Klusterlet",
 			"image": "serviceicon_7.svg",
 			"category": "Cluster Lifecycle Services",

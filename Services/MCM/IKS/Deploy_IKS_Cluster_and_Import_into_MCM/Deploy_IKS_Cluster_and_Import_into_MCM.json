@@ -1,8 +1,9 @@
 {
   "service": {
     "specVersion": "v3",
+    "version": "3.2.1_1.11",
     "catalog_metadata": {
-      "name": "IKS cluster v1_11",
+      "name": "IKS cluster",
       "description": "Deploys and imports IKS cluster into an IBM Multicloud Manager hub-cluster.",
       "image": "serviceicon_1.svg",
       "category": "Cluster Lifecycle Services",

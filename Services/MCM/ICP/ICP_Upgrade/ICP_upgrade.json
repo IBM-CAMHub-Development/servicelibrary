@@ -1,8 +1,9 @@
 {
     "service": {
       "specVersion": "v3",
+      "version": "3.2.1",
       "catalog_metadata": {
-        "name": "ICP v3_2_1 cluster upgrade",
+        "name": "ICP cluster upgrade",
         "description": "Upgrades the version of the ICP cluster",
         "image": "serviceicon_1.svg",
         "category": "Cluster Lifecycle Services",
