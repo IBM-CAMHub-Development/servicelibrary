@@ -527,7 +527,7 @@
                     "openshift_master_hostname_ip",
                     "openshift_infra_ip",
                     "openshift_compute1_hostname",
-                    "openshift_compute2_hostname_ip",
+                    "openshift_compute2_hostname",
                     "openshift_compute3_hostname"
                   ],
                   "error": false
@@ -556,7 +556,7 @@
                     "icp_admin_user": "${input_parameters.icp_admin_user}",
                     "icp_admin_password": "${input_parameters.icp_admin_password}",
                     "icp_management_host": "${templates.openshifaf6167b2.output.openshift_compute1_hostname}",
-                    "icp_master_host_ip": "${templates.openshifaf6167b2.output.openshift_compute2_hostname_ip}",
+                    "icp_master_host": "${templates.openshifaf6167b2.output.openshift_compute2_hostname}",
                     "icp_proxy_host": "${templates.openshifaf6167b2.output.openshift_compute3_hostname}",
                     "icp_private_ssh_key": "${input_parameters.icp_private_ssh_key}",
                     "icp_public_ssh_key": "${input_parameters.icp_public_ssh_key}",
