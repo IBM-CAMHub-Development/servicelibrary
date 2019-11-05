@@ -634,6 +634,7 @@
             {
               "IBM Cloud Private HA installation on Microsoft Azure": {
                 "title": "IBM Cloud Private HA installation on Microsoft Azure",
+
                 "template_name": "IBM Cloud Private HA installation on Microsoft Azure",
                 "version": "3.2.1",
                 "id": "ibmcloudbdafb05b",
