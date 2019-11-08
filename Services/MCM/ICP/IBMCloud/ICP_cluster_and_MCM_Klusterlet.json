@@ -24,8 +24,8 @@
     },
     "tags": [
       {
-        "name": "Request_Group",
-        "label": "Request_Group",
+        "name": "request_group",
+        "label": "request_group",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -38,8 +38,8 @@
         "permission": "Read-Only"
       },
       {
-        "name": "Request_User",
-        "label": "Request_User",
+        "name": "request_user",
+        "label": "request_user",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -52,8 +52,8 @@
         "permission": "Read-Only"
       },
       {
-        "name": "Service_Name",
-        "label": "Service_Name",
+        "name": "service_name",
+        "label": "service_name",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -66,8 +66,8 @@
         "permission": "Read-Only"
       },
       {
-        "name": "Service_Identifier",
-        "label": "Service_Identifier",
+        "name": "service_identifier",
+        "label": "service_identifier",
         "type": "string",
         "immutable": true,
         "hidden": false,
@@ -210,7 +210,7 @@
               },
               {
                 "value": "mex01",
-                "label": "Quer\u00e9taro, Mexico"
+                "label": "Querétaro, Mexico"
               },
               {
                 "value": "sjc01",
@@ -646,16 +646,16 @@
                   "mcm_controller": "${input_parameters.mcm_controller}"
                 },
                 "template_params": {
-									"cluster_namespace": "${input_parameters.cluster_name}",
-									"cluster_name":  "${input_parameters.cluster_name}",
-									"icp_admin_user": "admin",
-									"icp_admin_password": "${templates.ibmcloudae8a61bf.output.ibm_cloud_private_admin_password||templates.ibmcloud941a9504.output.ibm_cloud_private_admin_password||templates.ibmcloude347f135.output.ibm_cloud_private_admin_password}",
-									"icp_url": "${templates.ibmcloudae8a61bf.output.ibm_cloud_private_console_url||templates.ibmcloud941a9504.output.ibm_cloud_private_console_url||templates.ibmcloude347f135.output.ibm_cloud_private_console_url}",
-									"image_registry": "${\"\"||\"\"||templates.ibmcloude347f135.output.ibm_cloud_private_registry_server}:8500/ibmcom",
-									"image_suffix": "-amd64",
-									"image_version": "3.2.1",
-									"docker_user": "admin",
-									"docker_password": "${templates.ibmcloudae8a61bf.output.ibm_cloud_private_admin_password||templates.ibmcloud941a9504.output.ibm_cloud_private_admin_password||templates.ibmcloude347f135.output.ibm_cloud_private_admin_password}"
+                  "cluster_namespace": "${input_parameters.cluster_name}",
+                  "cluster_name": "${input_parameters.cluster_name}",
+                  "icp_admin_user": "admin",
+                  "icp_admin_password": "${templates.ibmcloudae8a61bf.output.ibm_cloud_private_admin_password||templates.ibmcloud941a9504.output.ibm_cloud_private_admin_password||templates.ibmcloude347f135.output.ibm_cloud_private_admin_password}",
+                  "icp_url": "${templates.ibmcloudae8a61bf.output.ibm_cloud_private_console_url||templates.ibmcloud941a9504.output.ibm_cloud_private_console_url||templates.ibmcloude347f135.output.ibm_cloud_private_console_url}",
+                  "image_registry": "${\"\"||\"\"||templates.ibmcloude347f135.output.ibm_cloud_private_registry_server}:8500/ibmcom",
+                  "image_suffix": "-amd64",
+                  "image_version": "3.2.1",
+                  "docker_user": "admin",
+                  "docker_password": "${templates.ibmcloudae8a61bf.output.ibm_cloud_private_admin_password||templates.ibmcloud941a9504.output.ibm_cloud_private_admin_password||templates.ibmcloude347f135.output.ibm_cloud_private_admin_password}"
                 },
                 "outputs": [
                   "cluster_import_yaml"
@@ -792,7 +792,7 @@
               },
               {
                 "value": "mex01",
-                "label": "Quer\u00e9taro, Mexico"
+                "label": "Querétaro, Mexico"
               },
               {
                 "value": "sjc01",
@@ -1150,7 +1150,7 @@
               },
               {
                 "value": "mex01",
-                "label": "Quer\u00e9taro, Mexico"
+                "label": "Querétaro, Mexico"
               },
               {
                 "value": "sjc01",
@@ -1508,7 +1508,7 @@
               },
               {
                 "value": "mex01",
-                "label": "Quer\u00e9taro, Mexico"
+                "label": "Querétaro, Mexico"
               },
               {
                 "value": "sjc01",
@@ -1669,8 +1669,8 @@
             "label": "proxy",
             "customtype": "map",
             "type": "map",
-            "immutable": true,
-            "hidden": true,
+            "immutable": false,
+            "hidden": false,
             "required": false,
             "secured": false,
             "default": {
