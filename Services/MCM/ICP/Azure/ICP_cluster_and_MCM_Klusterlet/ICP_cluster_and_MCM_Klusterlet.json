@@ -87,30 +87,6 @@
         "description": "Default action for deployment of service",
         "input_parameters": [
           {
-            "name": "k_apiserverConfig_server",
-            "label": "Hub Cluster Kubernetes API Server ",
-            "description": "Hub Cluster Kubernetes API Server.Format https://<mcmServerIP>:8001",
-            "customtype": "string",
-            "type": "string",
-            "immutable": false,
-            "hidden": false,
-            "required": true,
-            "secured": false,
-            "default": ""
-          },
-          {
-            "name": "k_apiserverConfig_token",
-            "label": "Hub Cluster Kubernetes API server token",
-            "description": "Hub Cluster Kubernetes API server token. The kubectl config token. You can find this at https://<mcmServerIP>:8443 , under the Configure client main menu",
-            "customtype": "string",
-            "type": "string",
-            "immutable": false,
-            "hidden": false,
-            "required": true,
-            "secured": false,
-            "default": ""
-          },
-          {
             "name": "topology",
             "label": "ICP Deployment type",
             "description": "ICP Deployment type",
@@ -431,10 +407,10 @@
             "default": {
               "nodes": "1",
               "name": "master",
-              "vm_size": "Standard_A8_v2",
-              "os_disk_size": "300",
+              "vm_size": "Standard_D8_v3",
+              "os_disk_size": "800",
               "os_disk_type": "Standard_LRS",
-              "docker_disk_size": "100",
+              "docker_disk_size": "150",
               "docker_disk_type": "Standard_LRS",
               "etcd_data_size": "10",
               "etcd_data_type": "StandardSSD_LRS",
@@ -454,10 +430,10 @@
             "default": {
               "nodes": "1",
               "name": "proxy",
-              "vm_size": "Standard_A4_v2",
-              "os_disk_size": "150",
+              "vm_size": "Standard_D8_v3",
+              "os_disk_size": "350",
               "os_disk_type": "Standard_LRS",
-              "docker_disk_size": "100",
+              "docker_disk_size": "150",
               "docker_disk_type": "Standard_LRS"
             }
           },
@@ -473,9 +449,10 @@
             "default": {
               "nodes": "1",
               "name": "worker",
-              "os_disk_size": "150",
+              "vm_size": "Standard_D8_v3",
+              "os_disk_size": "350",
               "os_disk_type": "Standard_LRS",
-              "docker_disk_size": "100",
+              "docker_disk_size": "150",
               "docker_disk_type": "Standard_LRS"
             }
           },
@@ -491,10 +468,10 @@
             "default": {
               "nodes": "1",
               "name": "mgt",
-              "vm_size": "Standard_A8_v2",
-              "os_disk_size": "250",
+              "vm_size": "Standard_D8_v3",
+              "os_disk_size": "350",
               "os_disk_type": "Standard_LRS",
-              "docker_disk_size": "100",
+              "docker_disk_size": "150",
               "docker_disk_type": "Standard_LRS"
             }
           },
@@ -510,10 +487,10 @@
             "default": {
               "nodes": "1",
               "name": "va",
-              "vm_size": "Standard_A8_v2",
-              "os_disk_size": "400",
+              "vm_size": "Standard_D8_v3",
+              "os_disk_size": "800",
               "os_disk_type": "Standard_LRS",
-              "docker_disk_size": "100",
+              "docker_disk_size": "150",
               "docker_disk_type": "Standard_LRS"
             }
           },
@@ -634,7 +611,6 @@
             {
               "IBM Cloud Private HA installation on Microsoft Azure": {
                 "title": "IBM Cloud Private HA installation on Microsoft Azure",
-
                 "template_name": "IBM Cloud Private HA installation on Microsoft Azure",
                 "version": "3.2.1",
                 "id": "ibmcloudbdafb05b",
@@ -703,7 +679,7 @@
                 "title": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
                 "template_name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
                 "version": "3.2.1",
-                "id": "ibmmulti2c1198e5",
+                "id": "ibmmulti63b2c0ef",
                 "template_type": "Terraform",
                 "template_content_type": "Other",
                 "template_provider": "Other",
@@ -711,26 +687,26 @@
                 "cloud_connection_name": "Other",
                 "template_data_objects": {
                   "bastionhost": "DefaultNoBastionHostRequired",
-                  "private_docker_registry": "${templates.ibmcloudb3c9917e.output.registry_config_do_name||templates.ibmcloudbdafb05b.output.registry_config_do_name}",
                   "mcm_controller": "${input_parameters.mcm_controller}"
                 },
                 "template_params": {
-                  "import_launch_node_ip": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_boot_ip||templates.ibmcloudbdafb05b.output.ibm_cloud_private_boot_ip}",
-                  "vm_os_user": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_ssh_user||templates.ibmcloudbdafb05b.output.ibm_cloud_private_ssh_user}",
-                  "vm_os_password": "",
-                  "vm_os_private_key": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_ssh_key||templates.ibmcloudbdafb05b.output.ibm_cloud_private_ssh_key}",
-                  "cluster_server_host": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_admin_url||templates.ibmcloudbdafb05b.output.ibm_cloud_private_admin_url}",
-                  "cluster_name": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_cluster_name||templates.ibmcloudbdafb05b.output.ibm_cloud_private_cluster_name}",
-                  "admin_user": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_admin_user||templates.ibmcloudbdafb05b.output.ibm_cloud_private_admin_user}",
-                  "admin_user_password": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_admin_password||templates.ibmcloudbdafb05b.output.ibm_cloud_private_admin_password}",
-                  "icp_inception_image": "${templates.ibmcloudb3c9917e.icp_inception_image||templates.ibmcloudbdafb05b.icp_inception_image}",
-                  "icp_dir": "/opt/ibm/cluster",
-                  "man_cluster_on_hub": "${templates.ibmcloudb3c9917e.output.connection_name||templates.ibmcloudbdafb05b.output.connection_name}"
+                  "mcm_url": "${mcm_controller.icp_url}",
+                  "mcm_admin_user": "${mcm_controller.icp_admin_user}",
+                  "mcm_admin_password": "${mcm_controller.icp_admin_password}",
+                  "cluster_name": "${templates.ibmcloudb3c9917e.cluster_name||templates.ibmcloudbdafb05b.cluster_name}",
+                  "cluster_namespace": "",
+                  "icp_url": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_admin_url||templates.ibmcloudbdafb05b.output.ibm_cloud_private_admin_url}",
+                  "icp_admin_user": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_admin_user||templates.ibmcloudbdafb05b.output.ibm_cloud_private_admin_user}",
+                  "icp_admin_password": "${templates.ibmcloudb3c9917e.output.ibm_cloud_private_admin_password||templates.ibmcloudbdafb05b.output.ibm_cloud_private_admin_password}",
+                  "image_registry": "",
+                  "image_suffix": "",
+                  "image_version": "",
+                  "docker_user": "",
+                  "docker_password": ""
                 },
-                "outputs": [
-                  "cluster_import_yaml"
-                ],
+                "outputs": [],
                 "error": false,
+                "immutable": false,
                 "isErrorFlow": false,
                 "warning": false
               }
@@ -740,7 +716,7 @@
           "notifications": [],
           "sequence": {
             "0": "decision8ab49e23",
-            "1": "ibmmulti2c1198e5"
+            "1": "ibmmulti63b2c0ef"
           },
           "error_sequence": {}
         },
@@ -749,11 +725,54 @@
     ],
     "plans": [
       {
-        "name": "Standard",
-        "description": "To deploy a Standard plan",
+        "name": "Minimal Install",
+        "description": "IBM Cloud Private minimal installation on Microsoft Azure",
         "actions": [],
-        "plan_parameters": [],
+        "plan_parameters": [
+          {
+            "name": "topology",
+            "label": "ICP Deployment type",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "ICP Deployment type",
+            "options": [
+              {
+                "label": "minimal",
+                "value": "ce",
+                "default": true
+              }
+            ]
+          }
+        ],
         "expanded": false
+      },
+      {
+        "name": "High Availability Install",
+        "description": "IBM Cloud Private HA installation on Microsoft Azure",
+        "plan_parameters": [
+          {
+            "name": "topology",
+            "label": "ICP Deployment type",
+            "customtype": "string",
+            "type": "string",
+            "immutable": false,
+            "hidden": false,
+            "required": true,
+            "secured": false,
+            "description": "ICP Deployment type",
+            "options": [
+              {
+                "label": "ha",
+                "value": "ha",
+                "default": true
+              }
+            ]
+          }
+        ]
       }
     ]
   }

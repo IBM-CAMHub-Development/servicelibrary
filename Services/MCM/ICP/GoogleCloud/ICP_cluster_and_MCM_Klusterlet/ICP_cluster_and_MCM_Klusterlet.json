@@ -57,8 +57,8 @@
         ]
       ],
       "template_mapping": {
-        "OpenContent - IBM Cloud Private minimal installation on Google Cloud": "ibmcloudf317cf74",
-        "OpenContent - IBM Cloud Private installation with load balancers on Google Cloud": "ibmcloud78ba87ba"
+        "IBM Cloud Private minimal installation on Google Cloud": "ibmcloudf317cf74",
+        "IBM Cloud Private installation with load balancers on Google Cloud": "ibmcloud78ba87ba"
       },
       "tags": [
         {
