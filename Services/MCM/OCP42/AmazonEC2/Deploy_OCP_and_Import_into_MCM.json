@@ -531,9 +531,9 @@
           "conditions": [],
           "templates": [
             {
-              "Red Hat Openshift Container Platform Cluster on Amazon Web Services for Terrafrom 0.12.x": {
-                "title": "Red Hat Openshift Container Platform Cluster on Amazon Web Services for Terrafrom 0.12.x",
-                "template_name": "Red Hat Openshift Container Platform Cluster on Amazon Web Services for Terrafrom 0.12.x",
+              "Openshift Container Platform Cluster on Amazon Web Services for Terrafrom 0.12.x": {
+                "title": "Openshift Container Platform Cluster on Amazon Web Services for Terrafrom 0.12.x",
+                "template_name": "Openshift Container Platform Cluster on Amazon Web Services for Terrafrom 0.12.x",
                 "version": "4.2",
                 "id": "opencont75cd622b",
                 "template_type": "Terraform",
