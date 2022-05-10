@@ -1,6 +1,6 @@
 {
   "service": {
-    "version": "1.0.0.0",
+    "version": "2.0.0.0",
     "specVersion": "v3",
     "catalog_metadata": {
       "name": "IBM Databases service",
@@ -360,7 +360,7 @@
             {
               "IBM Database Service": {
                 "title": "IBM Database Service_1f1df9",
-                "template_name": "IBM Database Service",
+                "template_name": "IBM Database Service for Terraform 1.x.x",
                 "version": "2.5",
                 "id": "ibmdataba1aa7f4c",
                 "template_type": "Terraform",

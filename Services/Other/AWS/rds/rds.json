@@ -1,6 +1,6 @@
 {
     "service": {
-      "version": "1.0.0.0",
+      "version": "2.0.0.0",
       "specVersion": "v3",
       "catalog_metadata": {
         "name": "Amazon Relational Database Service",
@@ -397,7 +397,7 @@
               {
                 "Amazon Relational Database Service": {
                   "title": "AWS RDS_4b2cd2",
-                  "template_name": "Amazon Relational Database Service",
+                  "template_name": "Amazon Relational Database Service for Terraform 1.x.x",
                   "version": "2.5",
                   "id": "awsrds909725a3fd",
                   "template_type": "Terraform",
@@ -509,7 +509,7 @@
               {
                 "Amazon Relational Database Service Snapshot": {
                   "title": "AWS RDS Snapshot_9d26ed",
-                  "template_name": "Amazon Relational Database Service Snapshot",
+                  "template_name": "Amazon Relational Database Service Snapshot for Terraform 1.x.x",
                   "version": "2.5",
                   "id": "awsrdssnd51102ff",
                   "template_type": "Terraform",

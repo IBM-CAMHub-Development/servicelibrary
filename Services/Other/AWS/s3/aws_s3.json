@@ -1,6 +1,6 @@
 {
     "service": {
-      "version": "1.0.0.0",
+      "version": "2.0.0.0",
       "specVersion": "v3",
       "catalog_metadata": {
         "name": "Amazon S3 Bucket",
@@ -236,7 +236,7 @@
               {
                 "Amazon S3 Storage": {
                   "title": "AWS S3_3d1d28",
-                  "template_name": "Amazon S3 Storage",
+                  "template_name": "Amazon S3 Storage for Terraform 1.x.x",
                   "version": "2.5",
                   "id": "awss31384c0597f7",
                   "template_type": "Terraform",

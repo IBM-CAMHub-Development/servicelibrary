@@ -1,6 +1,6 @@
 {
     "service": {
-      "version": "1.0.0.0",
+      "version": "2.0.0.0",
       "specVersion": "v3",
       "catalog_metadata": {
         "name": "Virtual Machine on Google Cloud Platform",
@@ -203,7 +203,7 @@
               {
                 "Google Cloud Single Virtual Machine Example": {
                   "title": "Google Cloud Single Virtual Machine Example_1eb4ae",
-                  "template_name": "Google Cloud Single Virtual Machine Example",
+                  "template_name": "Google Cloud Single Virtual Machine Example for Terraform 1.x.x",
                   "version": "2.5",
                   "id": "googlecl1bcd5dbb",
                   "template_type": "Terraform",

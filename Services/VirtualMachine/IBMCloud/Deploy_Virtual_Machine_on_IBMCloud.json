@@ -1,6 +1,6 @@
 {
     "service": {
-      "version": "1.0.0.0",
+      "version": "2.0.0.0",
       "specVersion": "v3",
       "catalog_metadata": {
         "name": "Virtual Machine on IBM Cloud",
@@ -203,7 +203,7 @@
               {
                 "Virtual Server with SSH key": {
                   "title": "Virtual Server with SSH key_56147c",
-                  "template_name": "Virtual Server with SSH key",
+                  "template_name": "Virtual Server with SSH key for Terraform 1.x.x",
                   "version": "2.5",
                   "id": "virtualsd2b7f0ba",
                   "template_type": "Terraform",

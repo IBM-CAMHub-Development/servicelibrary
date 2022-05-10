@@ -1,6 +1,6 @@
 {
     "service": {
-      "version": "1.0.0.0",
+      "version": "2.0.0.0",
       "specVersion": "v3",
       "catalog_metadata": {
         "name": "Virtual Machine on Amazon Web Services",
@@ -296,7 +296,7 @@
               {
                 "Amazon EC2 Virtual Server with SSH key": {
                   "title": "Amazon EC2 Virtual Server with SSH key_37db7b",
-                  "template_name": "Amazon EC2 Virtual Server with SSH key",
+                  "template_name": "Amazon EC2 Virtual Server with SSH key for Terraform 1.x.x",
                   "version": "2.5",
                   "id": "amazoneca26d044a",
                   "template_type": "Terraform",

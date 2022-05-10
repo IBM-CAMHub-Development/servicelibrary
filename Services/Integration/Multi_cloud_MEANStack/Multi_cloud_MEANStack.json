@@ -1,7 +1,7 @@
 {
   "service": {
     "specVersion": "v3",
-    "version": "2.5.0.0",
+    "version": "3.0.0.0",
     "catalog_metadata": {
       "name": "Multi Cloud - MEAN Stack deployment",
       "description": "This service deploy MEAN stock on your choice of cloud.",
@@ -711,7 +711,7 @@
             {
               "MEAN stack deployment": {
                 "title": "MEAN stack VMW",
-                "template_name": "MEAN stack deployment on VMware",
+                "template_name": "MEAN stack deployment on VMware for Terraform 1.x.x",
                 "version": "2.5",
                 "id": "meanstac8be2854a",
                 "template_type": "Terraform",
@@ -770,13 +770,13 @@
                   "user_public_ssh_key": "${input_parameters.user_public_ssh_key}"
                 },
                 "outputs": [],                
-                "provider_engine_version": "0.12.21"
+                "provider_engine_version": "1.1.3"
               }
             },
             {
-              "MEAN stack deployment (hybrid-cloud)": {
+              "MEAN stack deployment (hybrid-cloud) for Terraform 1.x.x": {
                 "title": "MEAN stack SL",
-                "template_name": "MEAN stack deployment (hybrid-cloud)",
+                "template_name": "MEAN stack deployment (hybrid-cloud) for Terraform 1.x.x",
                 "version": "2.5",
                 "id": "meanstac79ffc96e",
                 "template_type": "Terraform",
@@ -807,7 +807,7 @@
             {
               "MEAN stack deployment": {
                 "title": "MEAN stack AWS",
-                "template_name": "MEAN stack deployment on AWS",
+                "template_name": "MEAN stack deployment on AWS for Terraform 1.x.x",
                 "version": "2.5",
                 "id": "meanstac8ca7eecd",
                 "template_type": "Terraform",
@@ -833,9 +833,9 @@
               }
             },
             {
-              "MEAN stack deployment on Microsoft Azure": {
+              "MEAN stack deployment on Microsoft Azure for Terraform 1.x.x": {
                 "title": "MEAN stack Azure",
-                "template_name": "MEAN stack deployment on Microsoft Azure",
+                "template_name": "MEAN stack deployment on Microsoft Azure for Terraform 1.x.x",
                 "version": "2.5",
                 "id": "meanstac111cd421",
                 "template_type": "Terraform",
@@ -860,9 +860,9 @@
               }
             },
             {
-              "ServiceNow CMDB Configuration Template": {
+              "ServiceNow CMDB Configuration Template for Terraform 1.x.x": {
                 "title": "SNow CMDB",
-                "template_name": "ServiceNow CMDB Configuration Template",
+                "template_name": "ServiceNow CMDB Configuration Template for Terraform 1.x.x",
                 "version": "2.1",
                 "id": "servicend6b96b5b",
                 "template_type": "Terraform",

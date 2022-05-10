@@ -1,6 +1,6 @@
 {
     "service": {
-        "version": "1.0.0.0",
+        "version": "2.0.0.0",
         "specVersion": "v3",
         "catalog_metadata": {
             "name": "Infrastructure Management Approval",
@@ -255,7 +255,7 @@
                         {
                             "Poll Infrastructure Management for Approval": {
                                 "title": "Poll Infrastructure Management for Approval_1d503c",
-                                "template_name": "Poll Infrastructure Management for Approval",
+                                "template_name": "Poll Infrastructure Management for Approval for Terraform 1.x.x",
                                 "version": "2.5",
                                 "id": "pollclouc5a483f5",
                                 "template_type": "Terraform",
